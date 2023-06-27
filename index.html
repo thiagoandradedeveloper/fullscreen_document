@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="toggleFullscreen()">Alternar Tela Cheia</button>
+
+<script>
+    
+  function toggleFullscreen() {
+    doc = document;
+    if (doc.fullscreenElement) {
+      // Se o documento já estiver em tela cheia, sair do modo de tela cheia
+      if (doc.exitFullscreen) {
+        doc.exitFullscreen();
+      } else if (doc.mozCancelFullScreen) {
+        doc.mozCancelFullScreen();
+      } else if (doc.webkitExitFullscreen) {
+        doc.webkitExitFullscreen();
+      } else if (doc.msExitFullscreen) {
+        doc.msExitFullscreen();
+      }
+    } else {
+      // Se o documento não estiver em tela cheia, entrar no modo de tela cheia
+      doc = document.documentElement;
+      if (doc.requestFullscreen) {
+        doc.requestFullscreen();
+      } else if (doc.mozRequestFullScreen) {
+        doc.mozRequestFullScreen();
+      } else if (doc.webkitRequestFullscreen) {
+        doc.webkitRequestFullscreen();
+      } else if (doc.msRequestFullscreen) {
+        doc.msRequestFullscreen();
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
